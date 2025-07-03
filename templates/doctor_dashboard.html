@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Doctor Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e3f0fc 0%, #aee1fc 100%);
+            min-height: 100vh;
+        }
+        .container {
+            background-color: rgba(255, 255, 255, 0.85);
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.08);
+            max-width: 800px;
+            margin: 50px auto;
+        }
+        h2 {
+            color: #004d40;
+        }
+        label {
+            color: #00695c;
+        }
+        button {
+            background-color: #00695c;
+            border: none;
+        }
+        table {
+            border: 1px solid #b6e0fe;
+        }
+        th, td {
+            border: 1px solid #b6e0fe;
+        }
+        .text-end {
+            margin-top: 20px;
+            text-align: right;
+        }
+    </style>
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center">Doctor Dashboard</h2>
+
+        <table class="table table-striped mt-4">
+            <thead>
+                <tr>
+                    <th>Patient Name</th>
+                    <th>Symptoms</th>
+                    <th>Appointment Date</th>
+                    <th>Status</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment.patient_email }}</td>
+                    <td>{{ appointment.symptoms }}</td>
+                    <td>{{ appointment.appointment_date }}</td>
+                    <td>{{ appointment.status }}</td>
+                    <td><a href="/view_appointment/{{ appointment.appointment_id }}" class="btn btn-primary">View Details</a></td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+        <!-- Logout Button -->
+        <div class="text-center mt-4">
+            <form action="{{ url_for('logout') }}" method="post">
+                <button type="submit" class="btn btn-danger">Logout</button>
+            </form>
+        </div>
+    </div>
+</body>
+</html>
