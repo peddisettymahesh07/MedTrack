@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Search Results</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+</head>
+<body class="container mt-5">
+    <h2>Search Results for: <em>{{ search_term }}</em></h2>
+
+    {% if appointments %}
+        <table class="table table-bordered">
+            <thead>
+                <tr>
+                    <th>Doctor</th>
+                    <th>Patient</th>
+                    <th>Status</th>
+                    <th>Date</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for appointment in appointments %}
+                <tr>
+                    <td>{{ appointment.doctor_name or appointment.doctor_email }}</td>
+                    <td>{{ appointment.patient_name or appointment.patient_email }}</td>
+                    <td>{{ appointment.status }}</td>
+                    <td>{{ appointment.appointment_date }}</td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    {% else %}
+        <p>No appointments found.</p>
+    {% endif %}
+</body>
+</html>
