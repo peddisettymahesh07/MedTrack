@@ -8,10 +8,13 @@ from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 import logging
 import os
+from dotenv import load_dotenv
 # ---------------------------------------
 # Flask App Initialization
 # ---------------------------------------
+load_dotenv()  
 app = Flask(__name__)
+app.secret_key = os.getenv("")
 
 # ---------------------------------------
 # App Configuration (Inline) 
