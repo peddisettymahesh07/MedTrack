@@ -14,7 +14,7 @@ from dotenv import load_dotenv
 # ---------------------------------------
 load_dotenv()  
 app = Flask(__name__)
-app.secret_key = os.getenv("")
+app.secret_key = os.getenv("AWS_SECRET_ACCESS_KEY")
 
 # ---------------------------------------
 # App Configuration (Inline) 
