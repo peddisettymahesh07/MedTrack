@@ -22,7 +22,7 @@ AWS_REGION_NAME = 'us-east-1'  # Example: Mumbai region
 SMTP_SERVER = 'smtp.gmail.com'
 SMTP_PORT = 587
 SENDER_EMAIL = '228x1a42a1@khitguntur.ac.in'  # Replace with your sender email
-SENDER_PASSWORD = 'your_email_password'    # Replace with your email app password
+SENDER_PASSWORD = '@Pmahesh1982'    # Replace with your email app password
 ENABLE_EMAIL = True
 
 # ---------------------------------------
